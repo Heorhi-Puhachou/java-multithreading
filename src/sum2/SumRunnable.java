@@ -1,24 +1,20 @@
-package sum;
+package sum2;
 
 import java.util.List;
-import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class SumRunnable implements Runnable {
     private AtomicInteger sum;
     private Integer[] arrayToSum;
     private Integer index;
-    CountDownLatch latch;
-    List<Runnable> tasks;
+    private List<Runnable> tasks;
 
     public SumRunnable(Integer index,
                        AtomicInteger sum,
-                       Integer[] arrayToSum,
-                       CountDownLatch latch) {
+                       Integer[] arrayToSum) {
         this.sum = sum;
         this.arrayToSum = arrayToSum;
         this.index = index;
-        this.latch = latch;
     }
 
     public void run() {
@@ -28,6 +24,5 @@ public class SumRunnable implements Runnable {
         }
 
         System.out.println("Thread " + name + " with index " + index + " has sum " + sum.get());
-        latch.countDown();
     }
 }

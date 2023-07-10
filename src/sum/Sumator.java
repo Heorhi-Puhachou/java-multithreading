@@ -1,9 +1,11 @@
 package sum;
 
+import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Sumator {
+
     public static void main(String args[]) {
         String name = Thread.currentThread().getName();
         System.out.println("Starter thread - " + name);
@@ -27,6 +29,13 @@ public class Sumator {
         t1.start();
         t2.start();
         t3.start();
+
+
+
+
+
+
+        //System.out.println(sum.get());
 
         try {
             latch.await();
