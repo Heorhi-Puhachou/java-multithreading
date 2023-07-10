@@ -4,7 +4,6 @@ import java.util.concurrent.BlockingQueue;
 public class BlockingQueuePCExample {
 
     public static void main(String[] args) {
-
         BlockingQueue<String> queue = new ArrayBlockingQueue<>(5);
         Producer producer = new Producer(queue);
         Consumer consumer = new Consumer(queue);
@@ -13,7 +12,6 @@ public class BlockingQueuePCExample {
 
         producerThread.start();
         consumerThread.start();
-
     }
 
     static class Producer implements Runnable {
@@ -27,7 +25,6 @@ public class BlockingQueuePCExample {
 
         @Override
         public void run() {
-
             try {
                 System.out.println("Producing element 1");
                 queue.put("Element 1");
@@ -38,7 +35,6 @@ public class BlockingQueuePCExample {
                 System.out.println("Producing element 3");
                 queue.put("Element 3");
             } catch (InterruptedException e) {
-
                 e.printStackTrace();
             }
         }
@@ -64,6 +60,5 @@ public class BlockingQueuePCExample {
                 }
             }
         }
-
     }
 } 
